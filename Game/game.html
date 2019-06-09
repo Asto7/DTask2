@@ -3,14 +3,51 @@
         <style>
         *{margin:0px;
         padding:0px;}
-        canvas{background-color: blue;
-        margin-top:10px;}
+        canvas{
+        margin-top:10px;
+        display:block;}
+        h2{display:inline;}
+        ul{display:flex;
+        justify-content: space-around;
+        list-style: none;}
+#play{
+letter-spacing: 2px;
+font-weight: 700;
+border-style: solid;
+margin:0px auto;
+padding:2px;
+transition: all 1s;
+    cursor: pointer;
+    background-color:white;
+color: green;
+visibility: hidden;
+border-width: 0.5px;
+border-color: black;
+}
+#play:hover{
+    letter-spacing: 4px;
+    font-size:17px;
+    color:white;
+background-color: black;
+}
+
+        
         </style>
     </head>
     <body>
-<center><canvas id='canvas'></canvas>
-    <h2>Score : <span id="score">0</span></h2>
-      <button type="button" id="replay">Play again</button>
+        
+<center>
+
+    <canvas id='canvas'></canvas>
+
+   <ul>
+     <pre></pre>   <li><h2>Score : <span id="score">0</span></h2></li>
+    <li><h2>Life : <span id="life">0</span></h2></li>
+    <li><h2>HighScore : <span id="Hscore">0</span></h2></li>
+    <pre></pre>
+</ul>
+
+<button type="button" id="play">Play Again:)</button>
 
     </center>
     <script type="text/javascript" src="image.js"></script> 
