@@ -283,7 +283,9 @@ this.radius =5 ;
     this.ini=this.radius;
     this.color = 'rgb(' + Math.random() * 255 + ',' + Math.random() * 255 + ',' + Math.random() * 255 + ')';
     this.onScreen = true;//helps to delete the bullets which are not in the screen and hence maintain the speed of gameplay
-
+this.cool=0;
+    this.increment=(Math.random()-0.5)*0.1;
+    
     this.update = function () {
     
 
@@ -407,7 +409,15 @@ if(!this.over&&!this.start){
 if(!this.over){
     ctx.textAlign = 'center';
     ctx.fillStyle = 'white';
-    ctx.fillText(this.score, this.x, this.y + 5);
+    
+    
+    ctx.save();
+ctx.translate(this.x,this.y);
+ctx.rotate(this.cool);
+this.cool+=this.increment;
+    ctx.fillText(this.score, 0,  5);
+ctx.restore();
+//     ctx.fillText(this.score, this.x, this.y + 5);
 }
     ctx.restore();
 }
