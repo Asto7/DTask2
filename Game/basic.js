@@ -456,7 +456,7 @@ var GAMING = true;
 var stop;
 var move = 0;
 var X = [];
-var LIFE =10;
+var LIFE =5;
 var result = 0;
 var Hscore = +sessionStorage.getItem('HSCORE');
 var rate=120;
@@ -519,10 +519,10 @@ var LEVEL=[
         {x:canvas.width+50,y:250,dx:-1,dy:3,radius:30,score:1},
     ],
     
-    [   {x:-100,y:150,dx:8,dy:3,radius:30,score:3},
-            {x:canvas.width+400,y:300,dx:-6,dy:5,radius:30,score:2},
+    [   {x:-100,y:150,dx:8,dy:3,radius:30,score:5},
+            {x:canvas.width+400,y:300,dx:-6,dy:5,radius:30,score:4},
             {x:-900,y:250,dx:6,dy:6,radius:30,score:6},
-            {x:-400,y:220,dx:7,dy:6,radius:30,score:4},
+            {x:-400,y:220,dx:7,dy:6,radius:30,score:7},
 
         ],
        
