@@ -143,7 +143,7 @@ function fire() {
     // var date = new Date();
     var gun=new Audio();
 gun.src='gun.mp3';
-gun.volume='0.5';
+gun.volume='0.3';
 gun.play();
     fireRate = 0;
     // oldTime = date.getTime;
