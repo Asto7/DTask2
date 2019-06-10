@@ -520,8 +520,8 @@ var LEVEL=[
     ],
     
     [   {x:-100,y:150,dx:8,dy:3,radius:30,score:5},
-            {x:canvas.width+400,y:300,dx:-6,dy:5,radius:30,score:4},
-            {x:-900,y:250,dx:6,dy:6,radius:30,score:6},
+            {x:canvas.width+400,y:300,dx:-6,dy:5,radius:30,score:14},
+            {x:-900,y:250,dx:6,dy:6,radius:30,score:16},
             {x:-400,y:220,dx:7,dy:6,radius:30,score:7},
 
         ],
