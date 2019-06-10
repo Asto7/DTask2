@@ -1,6 +1,6 @@
 
 document.getElementById('play').addEventListener('click',function(){window.location.href='game.html';});
-
+var KEYWORD;
 function pauseGame(msg,msg1,msg2) {
     if (GAMING) {
         if(msg){
@@ -45,8 +45,10 @@ if(msg2){
 
         BACKGROUNDS.pause();
 
+clearInterval(KEYWORD);
     }
     else {
+        KEYWORD=setInterval(Pausing,25);
         BACKGROUNDS.play();
         stop = this.setInterval(repeat, 20);
         GAMING = true;
@@ -92,26 +94,25 @@ window.addEventListener('keyup', function (event) {
     }
 });
 
-window.addEventListener('keydown',Pausing);
+// window.addEventListener('keydown',Pausing);
 function Pausing()
-{ if (map[38]||event.keyCode == 38)
-    {
+{ 
+  
 
         if(rate==compare)
         fire();
     else {rate=rate+10;
-        
-    // console.log(rate);
-}}}
+        }
+    }
 
-var map = {}; // You could also use an array
-onkeydown = onkeyup = function(e){
-    e = e || event; // to deal with IE
-    map[e.keyCode] = e.type == 'keydown';
+// var map = {}; // You could also use an array
+// onkeydown = onkeyup = function(e){
+//     e = e || event; // to deal with IE
+//     map[e.keyCode] = e.type == 'keydown';
  
  
     /* insert conditional here */
-}
+
 
 function Dist(A, B) {
     return (Math.sqrt(Math.pow(A.x - B.x, 2) + Math.pow(A.y - B.y, 2)));
@@ -586,6 +587,7 @@ else{
     object.splice(0);
        for(var j=0;j<LEVEL[Leveln].length;j++){
     object.push(new Circle(LEVEL[Leveln][j].x,LEVEL[Leveln][j].y, LEVEL[Leveln][j].dx, LEVEL[Leveln][j].dy,LEVEL[Leveln][j].radius,LEVEL[Leveln][j].score));}
+  
     if(onetime[Leveln]){
     chapter[Leveln].play();
     onetime[Leveln]=false;}
