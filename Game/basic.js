@@ -152,12 +152,12 @@ gun.play();
     }
     X.splice(0, j);
 
-    var A = new IMAGE('BULLET.jpg', shoot.x + shoot.w * 0.5 - 30 * (Math.random() - 0.5), shoot.y + 6 * (Math.random() - 0.5) - 15, 8, 30, Gati);
+    var A = new IMAGE('BULLET.jpg', shoot.x + shoot.w * 0.5 - 25 * (Math.random() - 0.5), shoot.y + 6 * (Math.random() - 0.5) - 25, 8, 30, Gati);
     var slow = 50;
     for (var i = 0; i < X.length; i++) {
         if (slow == 0) break;
         if (collisionRR(A, X[i])) {
-            A = new IMAGE('BULLET.jpg', shoot.x + shoot.w * 0.5 - 30 * (Math.random() - 0.5), shoot.y + 6 * (Math.random() - 0.5) - 15, 8, 30, Gati);
+            A = new IMAGE('BULLET.jpg', shoot.x + shoot.w * 0.5 -25 * (Math.random() - 0.5), shoot.y + 6 * (Math.random() - 0.5) - 25, 8, 30, Gati);
             slow--;
             i = -1;
         }
@@ -298,7 +298,7 @@ this.start=false;
 if(!this.start)
 {
         if(!this.over){
-        if (collisionR(this, shoot)) {
+        if (collisionR(this, shoot)||collisionR(this, shoot.son)) {
             if (LIFE >= 2) {
             // this.x = 115;
             //     this.y = 115;
@@ -423,7 +423,7 @@ ctx.restore();
 }
 
 }
-
+var god=new Shooter(shoot.x+shoot.w*0.5-20, shoot.y-15, 40, 15);
 function Shooter(x, y, w, h) {
     this.x = x;
     this.y = y;
@@ -431,7 +431,7 @@ function Shooter(x, y, w, h) {
     this.w = w;
     this.h = h;
     this.color = 'blue';
-
+   this.son=god;
     this.update = function () {
         this.dx = move;
         if (this.x + this.dx < 0 || this.x + this.w + this.dx > canvas.width) {
@@ -439,15 +439,22 @@ function Shooter(x, y, w, h) {
             move = 0;
         }
         this.x += this.dx;
-
+this.son.x=this.x+this.w*0.5-20;
+this.son.y=this.y-15;
+this.son.w=40;
+this.son.h=15;
         this.draw();
     }
 
     this.draw = function () {
-        ctx.fillStyle = this.color;
+        ctx.save();
+ ctx.fillStyle = 'red';       
+	   ctx.strokeStyle='white';
         ctx.beginPath();
-        ctx.fillRect(this.x, this.y, this.w, this.h);
-        ctx.stroke();
+        ctx.fillRect(this.x+this.w*0.5-20, this.y-15, 40, 15);
+       ctx.fillStyle = this.color;
+	    ctx.fillRect(this.x, this.y, this.w, this.h);
+        ctx.restore();
         ctx.closePath();
         // console.log('comes');}
     }
