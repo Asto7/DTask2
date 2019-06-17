@@ -423,7 +423,8 @@ ctx.restore();
 }
 
 }
-var god=new Shooter(shoot.x+shoot.w*0.5-20, shoot.y-15, 40, 15);
+var god=new Shooter(this.x+this.w*0.5-20, this.y-15, 40, 15);
+
 function Shooter(x, y, w, h) {
     this.x = x;
     this.y = y;
